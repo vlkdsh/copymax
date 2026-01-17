@@ -23,6 +23,18 @@
                 <div class="logo-container">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Crect fill='%23E31E24' width='220' height='40'/%3E%3Ctext x='15' y='28' fill='white' font-family='Arial Black' font-size='20' font-weight='900'%3ECOPYMAX%3C/text%3E%3C/svg%3E" alt="COPYMAX" class="logo" id="logo">
                 </div>
+                <div class="header-right">
+                    <div class="lang-switcher" id="langSwitcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="et">ET</button>
+                    </div>
+                    <button class="burger-menu" id="burgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
                 <nav class="nav" id="nav">
                     <ul class="nav-list" id="navList"></ul>
                 </nav>
@@ -32,14 +44,19 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container-full">
-            <div class="hero-content">
-                <div class="hero-logo-massive">
-                    <span id="heroTitle"></span>
+        <div class="hero-3d">
+            <div class="hero-main">
+                <div class="text-3d-massive" id="hero3DText"></div>
+                <div class="cylinder-container">
+                    <div class="cylinder-wrapper">
+                        <div class="cylinder">
+                            <div class="cylinder-brands" id="cylinderBrands"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-text-vertical">
-                    <span class="vertical-text" id="heroSubtitle"></span>
-                </div>
+            </div>
+            <div class="hero-vertical-text">
+                <div class="vertical-brands" id="heroVerticalText"></div>
             </div>
         </div>
     </section>
