@@ -100,7 +100,22 @@ function renderContent(data) {
 
     // Hero 3D Text
     document.getElementById('hero3DText').textContent = t.heroTitle;
-    document.getElementById('heroVerticalText').textContent = t.heroVertical;
+    
+    // Vertical text - split into three columns
+    const verticalContainer = document.getElementById('heroVerticalText');
+    verticalContainer.innerHTML = '';
+    
+    const verticalParts = [
+        t.heroVertical.split(' ').slice(-2).join(' '),  // "PRINT BRANDS"
+        t.heroVertical.split(' ').slice(2, 5).join(' '), // "HUB FOR GLOBAL"
+        t.heroVertical.split(' ').slice(0, 2).join(' ')  // "ESTONIA'S"
+    ];
+    
+    verticalParts.forEach(part => {
+        const div = document.createElement('div');
+        div.textContent = part;
+        verticalContainer.appendChild(div);
+    });
 
     // Cylinder Brands
     const cylinderBrands = document.getElementById('cylinderBrands');
