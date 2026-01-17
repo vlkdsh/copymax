@@ -183,7 +183,18 @@ body {
     position: relative;
     padding-top: 70px;
     overflow: hidden;
-    background: var(--white);
+    background: 
+        linear-gradient(rgba(227, 30, 36, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(227, 30, 36, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(200, 200, 200, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 200, 200, 0.15) 1px, transparent 1px),
+        #FAFAFA;
+    background-size: 
+        80px 80px,
+        80px 80px,
+        20px 20px,
+        20px 20px;
+    background-position: -1px -1px;
 }
 
 .hero-3d {
@@ -197,39 +208,58 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 40px;
+    padding: 40px 60px;
     position: relative;
 }
 
 .text-3d-massive {
-    font-size: clamp(60px, 15vw, 200px);
+    font-size: clamp(80px, 18vw, 320px);
     font-weight: 900;
-    color: var(--red);
-    letter-spacing: -5px;
-    line-height: 0.85;
+    color: #E31E24;
+    letter-spacing: -15px;
+    line-height: 0.75;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+    position: relative;
     text-shadow: 
-        5px 5px 0px rgba(0, 0, 0, 0.1),
-        10px 10px 0px rgba(0, 0, 0, 0.08),
-        15px 15px 0px rgba(0, 0, 0, 0.06),
-        20px 20px 0px rgba(0, 0, 0, 0.04),
-        25px 25px 40px rgba(0, 0, 0, 0.15);
-    transform: perspective(1000px) rotateX(5deg);
+        2px 2px 0px rgba(0, 0, 0, 0.08),
+        4px 4px 0px rgba(0, 0, 0, 0.07),
+        6px 6px 0px rgba(0, 0, 0, 0.06),
+        8px 8px 0px rgba(0, 0, 0, 0.05),
+        10px 10px 0px rgba(0, 0, 0, 0.04),
+        12px 12px 0px rgba(0, 0, 0, 0.03),
+        14px 14px 0px rgba(0, 0, 0, 0.02),
+        16px 16px 0px rgba(0, 0, 0, 0.01),
+        0 25px 50px rgba(227, 30, 36, 0.2);
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+    transform: scaleY(1.2);
+    transform-origin: center;
+}
+
+.hero-main::before {
+    content: '+';
+    position: absolute;
+    left: 20px;
+    top: 35%;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--red);
+    opacity: 0.4;
 }
 
 .cylinder-container {
     width: 100%;
-    max-width: 600px;
-    perspective: 1200px;
+    max-width: 700px;
+    perspective: 1500px;
     position: relative;
+    margin-left: 40px;
 }
 
 .cylinder-wrapper {
     width: 100%;
-    height: 200px;
+    height: 180px;
     position: relative;
     transform-style: preserve-3d;
 }
@@ -239,16 +269,20 @@ body {
     height: 100%;
     background: linear-gradient(135deg, 
         #E31E24 0%, 
-        #FF3333 50%, 
+        #F73A3A 25%,
+        #E31E24 50%,
+        #D01E24 75%,
         #E31E24 100%
     );
-    border-radius: 100px;
+    border-radius: 90px;
     position: relative;
     box-shadow: 
-        0 20px 60px rgba(227, 30, 36, 0.4),
-        inset 0 -10px 30px rgba(0, 0, 0, 0.2),
-        inset 0 10px 30px rgba(255, 255, 255, 0.2);
-    transform: rotateX(15deg) rotateY(-5deg);
+        0 25px 70px rgba(227, 30, 36, 0.35),
+        inset 0 -15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 15px 40px rgba(255, 255, 255, 0.15),
+        inset -10px 0 30px rgba(0, 0, 0, 0.1),
+        inset 10px 0 30px rgba(255, 255, 255, 0.1);
+    transform: rotateX(8deg) rotateY(-3deg);
 }
 
 .cylinder::before,
@@ -256,23 +290,27 @@ body {
     content: '';
     position: absolute;
     background: radial-gradient(ellipse at center, 
-        rgba(227, 30, 36, 0.9) 0%, 
-        rgba(227, 30, 36, 1) 100%
+        #D01E24 0%,
+        #E31E24 40%,
+        #F73A3A 70%,
+        #E31E24 100%
     );
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        inset 0 8px 25px rgba(0, 0, 0, 0.4),
+        inset 0 -8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .cylinder::before {
-    left: -70px;
+    left: -65px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .cylinder::after {
-    right: -70px;
+    right: -65px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -282,51 +320,76 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     padding: 20px;
 }
 
 .brand-stamp-cylinder {
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    padding: 12px 8px;
-    font-size: clamp(10px, 1.5vw, 16px);
+    background: rgba(255, 255, 255, 0.98);
+    border: 2.5px solid rgba(0, 0, 0, 0.4);
+    padding: 15px 20px;
+    font-size: clamp(12px, 1.8vw, 20px);
     font-weight: 900;
-    color: var(--red);
+    color: rgba(0, 0, 0, 0.8);
     text-align: center;
     letter-spacing: 1px;
-    transform: rotate(-3deg);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 3px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    position: relative;
 }
 
-.brand-stamp-cylinder:nth-child(2),
-.brand-stamp-cylinder:nth-child(5) {
-    transform: rotate(2deg);
+.brand-stamp-cylinder:nth-child(1) {
+    transform: rotate(-8deg);
+}
+
+.brand-stamp-cylinder:nth-child(2) {
+    transform: rotate(4deg);
+}
+
+.brand-stamp-cylinder:nth-child(3) {
+    transform: rotate(-6deg);
+}
+
+.brand-stamp-cylinder::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
 }
 
 .hero-vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
     position: absolute;
-    right: 30px;
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: clamp(20px, 3vw, 48px);
-    font-weight: 900;
-    color: var(--red);
-    letter-spacing: 8px;
-    text-shadow: 
-        3px 3px 0px rgba(0, 0, 0, 0.1),
-        6px 6px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 25px;
 }
 
 .vertical-brands {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    gap: 25px;
+}
+
+.vertical-brands > div {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: clamp(24px, 3.5vw, 64px);
+    font-weight: 900;
+    color: #E31E24;
+    letter-spacing: 6px;
+    line-height: 0.85;
+    text-shadow: 
+        2px 2px 0px rgba(0, 0, 0, 0.06),
+        4px 4px 0px rgba(0, 0, 0, 0.04),
+        6px 6px 0px rgba(0, 0, 0, 0.02),
+        0 8px 20px rgba(227, 30, 36, 0.15);
+    transform: scaleY(1.15);
 }
 
 /* ==================== BRANDS DRUM ==================== */
@@ -674,8 +737,22 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .text-3d-massive {
+        font-size: clamp(140px, 18vw, 320px);
+        letter-spacing: -20px;
+    }
+
+    .cylinder {
+        height: 200px;
+    }
+
     .cylinder-brands {
-        grid-template-columns: repeat(3, 1fr);
+        width: 75%;
+        gap: 35px;
+    }
+
+    .brand-stamp-cylinder {
+        padding: 18px 25px;
     }
 }
 
@@ -690,10 +767,20 @@ body {
     }
 
     .text-3d-massive {
-        font-size: 200px;
+        font-size: 320px;
+        letter-spacing: -25px;
     }
 
     .cylinder {
         height: 220px;
+    }
+
+    .cylinder-brands {
+        width: 70%;
+        gap: 40px;
+    }
+
+    .hero-main {
+        padding: 40px 80px;
     }
 }
