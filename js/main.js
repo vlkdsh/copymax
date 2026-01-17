@@ -1,10 +1,80 @@
 // js/main.js
 
+// Language data
+const translations = {
+    en: {
+        menu: ["Products", "Solutions", "Brands", "Contact"],
+        heroTitle: "COPYMAX",
+        heroVertical: "ESTONIA'S HUB FOR GLOBAL PRINT BRANDS",
+        sectionLabel: "AUTHORIZED DISTRIBUTOR",
+        blueprintTitle: "SOLUTIONS PORTFOLIO",
+        formTitle: "REQUEST CONSULTATION",
+        formCompany: "COMPANY NAME",
+        formEmail: "EMAIL ADDRESS",
+        formPhone: "PHONE NUMBER",
+        formRequirements: "YOUR REQUIREMENTS",
+        formSubmit: "SUBMIT REQUEST",
+        docBilling: "BILL OF LADING",
+        docDate: "DATE",
+        docPhone: "CONTACT_PHONE:",
+        docEmail: "CONTACT_EMAIL:",
+        docLocation: "LOCATION_EST:",
+        docLocationValue: "TALLINN, ESTONIA",
+        docSignature: "AUTHORIZED SIGNATURE",
+        docStamp: "✓ VERIFIED"
+    },
+    ru: {
+        menu: ["Продукты", "Решения", "Бренды", "Контакты"],
+        heroTitle: "COPYMAX",
+        heroVertical: "ЭСТОНСКИЙ ХАБ МИРОВЫХ БРЕНДОВ ПЕЧАТИ",
+        sectionLabel: "АВТОРИЗОВАННЫЙ ДИСТРИБЬЮТОР",
+        blueprintTitle: "ПОРТФОЛИО РЕШЕНИЙ",
+        formTitle: "ЗАПРОСИТЬ КОНСУЛЬТАЦИЮ",
+        formCompany: "НАЗВАНИЕ КОМПАНИИ",
+        formEmail: "ЭЛЕКТРОННАЯ ПОЧТА",
+        formPhone: "НОМЕР ТЕЛЕФОНА",
+        formRequirements: "ВАШИ ТРЕБОВАНИЯ",
+        formSubmit: "ОТПРАВИТЬ ЗАПРОС",
+        docBilling: "ТРАНСПОРТНАЯ НАКЛАДНАЯ",
+        docDate: "ДАТА",
+        docPhone: "ТЕЛЕФОН:",
+        docEmail: "EMAIL:",
+        docLocation: "АДРЕС:",
+        docLocationValue: "ТАЛЛИНН, ЭСТОНИЯ",
+        docSignature: "ПОДПИСЬ УПОЛНОМОЧЕННОГО ЛИЦА",
+        docStamp: "✓ ПРОВЕРЕНО"
+    },
+    et: {
+        menu: ["Tooted", "Lahendused", "Kaubamärgid", "Kontakt"],
+        heroTitle: "COPYMAX",
+        heroVertical: "EESTI KESKUS ÜLEMAAILMSETELE PRINTIMISBRÄNDIDELE",
+        sectionLabel: "VOLITATUD LEVITAJA",
+        blueprintTitle: "LAHENDUSTE PORTFELL",
+        formTitle: "KÜSI KONSULTATSIOONI",
+        formCompany: "ETTEVÕTTE NIMI",
+        formEmail: "E-POSTI AADRESS",
+        formPhone: "TELEFONINUMBER",
+        formRequirements: "TEIE NÕUDED",
+        formSubmit: "SAADA PÄRING",
+        docBilling: "VEOKIRI",
+        docDate: "KUUPÄEV",
+        docPhone: "TELEFON:",
+        docEmail: "E-POST:",
+        docLocation: "ASUKOHT:",
+        docLocationValue: "TALLINN, EESTI",
+        docSignature: "VOLITATUD ALLKIRI",
+        docStamp: "✓ KONTROLLITUD"
+    }
+};
+
+let currentLang = 'en';
+
 // Load content from JSON
 async function loadContent() {
     try {
         const response = await fetch('content.json');
         const data = await response.json();
+        window.contentData = data;
         renderContent(data);
         initInteractions();
     } catch (error) {
@@ -14,9 +84,12 @@ async function loadContent() {
 
 // Render content to DOM
 function renderContent(data) {
+    const t = translations[currentLang];
+
     // Header Navigation
     const navList = document.getElementById('navList');
-    data.header.menu.forEach(item => {
+    navList.innerHTML = '';
+    t.menu.forEach(item => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = '#';
@@ -25,12 +98,23 @@ function renderContent(data) {
         navList.appendChild(li);
     });
 
-    // Hero
-    document.getElementById('heroTitle').textContent = data.hero.title;
-    document.getElementById('heroSubtitle').textContent = data.hero.subtitle;
+    // Hero 3D Text
+    document.getElementById('hero3DText').textContent = t.heroTitle;
+    document.getElementById('heroVerticalText').textContent = t.heroVertical;
+
+    // Cylinder Brands
+    const cylinderBrands = document.getElementById('cylinderBrands');
+    cylinderBrands.innerHTML = '';
+    data.brands.slice(0, 6).forEach(brand => {
+        const stamp = document.createElement('div');
+        stamp.className = 'brand-stamp-cylinder';
+        stamp.textContent = brand;
+        cylinderBrands.appendChild(stamp);
+    });
 
     // Brands Drum - duplicate for infinite scroll
     const drumTrack = document.getElementById('drumTrack');
+    drumTrack.innerHTML = '';
     const brandsList = [...data.brands, ...data.brands];
     
     brandsList.forEach(brand => {
@@ -40,8 +124,14 @@ function renderContent(data) {
         drumTrack.appendChild(stamp);
     });
 
+    // Section labels
+    document.querySelector('.section-label').textContent = t.sectionLabel;
+    document.querySelector('.blueprint-title').textContent = t.blueprintTitle;
+    document.querySelector('.form-title').textContent = t.formTitle;
+
     // Products
     const productsGrid = document.getElementById('productsGrid');
+    productsGrid.innerHTML = '';
     data.products.forEach((product, index) => {
         const item = document.createElement('div');
         item.className = 'product-item';
@@ -64,6 +154,14 @@ function renderContent(data) {
         productsGrid.appendChild(item);
     });
 
+    // Form placeholders
+    const form = document.getElementById('requestForm');
+    form.querySelector('input[type="text"]').placeholder = t.formCompany;
+    form.querySelector('input[type="email"]').placeholder = t.formEmail;
+    form.querySelector('input[type="tel"]').placeholder = t.formPhone;
+    form.querySelector('textarea').placeholder = t.formRequirements;
+    form.querySelector('.submit-btn').textContent = t.formSubmit;
+
     // Contact in Transport Document
     const phoneLink = document.getElementById('contactPhone');
     phoneLink.textContent = data.contact.phone;
@@ -72,6 +170,16 @@ function renderContent(data) {
     const emailLink = document.getElementById('contactEmail');
     emailLink.textContent = data.contact.email;
     emailLink.href = `mailto:${data.contact.email}`;
+
+    // Document labels
+    document.querySelector('.field-label').textContent = t.docBilling;
+    document.querySelectorAll('.field-label')[1].textContent = t.docDate;
+    document.querySelectorAll('.mono-label')[0].textContent = t.docPhone;
+    document.querySelectorAll('.mono-label')[1].textContent = t.docEmail;
+    document.querySelectorAll('.mono-label')[2].textContent = t.docLocation;
+    document.querySelectorAll('.mono-value')[2].textContent = t.docLocationValue;
+    document.querySelector('.signature-line span').textContent = t.docSignature;
+    document.querySelector('.red-stamp').textContent = t.docStamp;
 
     // Current Date
     const dateEl = document.getElementById('currentDate');
@@ -82,19 +190,36 @@ function renderContent(data) {
 
 // Initialize interactions
 function initInteractions() {
+    // Language switcher
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentLang = btn.dataset.lang;
+            langButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderContent(window.contentData);
+        });
+    });
+
+    // Burger menu
+    const burgerMenu = document.getElementById('burgerMenu');
+    const nav = document.getElementById('nav');
+    burgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+
     // Form submission
     const form = document.getElementById('requestForm');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Animate submit button
         const btn = form.querySelector('.submit-btn');
         const originalText = btn.textContent;
-        btn.textContent = 'SENDING...';
+        btn.textContent = currentLang === 'en' ? 'SENDING...' : currentLang === 'ru' ? 'ОТПРАВКА...' : 'SAATMINE...';
         btn.style.background = '#666';
         
         setTimeout(() => {
-            btn.textContent = '✓ REQUEST SENT';
+            btn.textContent = currentLang === 'en' ? '✓ REQUEST SENT' : currentLang === 'ru' ? '✓ ЗАПРОС ОТПРАВЛЕН' : '✓ PÄRING SAADETUD';
             btn.style.background = '#00AA00';
             
             setTimeout(() => {
@@ -108,23 +233,25 @@ function initInteractions() {
     // Parallax effect for hero
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-logo-massive span');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        const hero3D = document.querySelector('.text-3d-massive');
+        if (hero3D) {
+            hero3D.style.transform = `perspective(1000px) rotateX(5deg) translateY(${scrolled * 0.2}px)`;
         }
     });
 
     // Drum interaction on hover
     const drumContainer = document.getElementById('drumContainer');
-    drumContainer.addEventListener('mouseenter', () => {
-        const track = document.getElementById('drumTrack');
-        track.style.animationPlayState = 'paused';
-    });
-    
-    drumContainer.addEventListener('mouseleave', () => {
-        const track = document.getElementById('drumTrack');
-        track.style.animationPlayState = 'running';
-    });
+    if (drumContainer) {
+        drumContainer.addEventListener('mouseenter', () => {
+            const track = document.getElementById('drumTrack');
+            track.style.animationPlayState = 'paused';
+        });
+        
+        drumContainer.addEventListener('mouseleave', () => {
+            const track = document.getElementById('drumTrack');
+            track.style.animationPlayState = 'running';
+        });
+    }
 
     // Product cards hover effect
     const productCards = document.querySelectorAll('.product-item');
