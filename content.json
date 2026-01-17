@@ -1,0 +1,42 @@
+{
+  "header": {
+    "logo": "COPYMAX",
+    "menu": ["Products", "Solutions", "Brands", "Contacts"]
+  },
+  "hero": {
+    "title": "COPYMAX",
+    "subtitle": "ESTONIA'S HUB FOR GLOBAL PRINT BRANDS"
+  },
+  "brands": [
+    "HP",
+    "Canon",
+    "Xerox",
+    "Kyocera",
+    "Konica Minolta",
+    "Ricoh",
+    "Brother",
+    "Epson"
+  ],
+  "products": [
+    {
+      "title": "Laser Printers",
+      "description": "Professional laser printing solutions for business and enterprise environments"
+    },
+    {
+      "title": "Inkjet Devices",
+      "description": "High-quality inkjet technology for precise color reproduction"
+    },
+    {
+      "title": "Cartridges & Toner",
+      "description": "Original and compatible supplies for all major brands"
+    },
+    {
+      "title": "Industrial Solutions",
+      "description": "Enterprise-level print systems and document management"
+    }
+  ],
+  "contact": {
+    "phone": "+372 334 57000",
+    "email": "info@copymax.ee"
+  }
+}
