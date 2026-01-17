@@ -1,7 +1,7 @@
 {
   "header": {
     "logo": "COPYMAX",
-    "menu": ["Products", "Solutions", "Brands", "Contacts"]
+    "menu": ["Products", "Solutions", "Brands", "Contact"]
   },
   "hero": {
     "title": "COPYMAX",
@@ -9,30 +9,30 @@
   },
   "brands": [
     "HP",
-    "Canon",
-    "Xerox",
-    "Kyocera",
-    "Konica Minolta",
-    "Ricoh",
-    "Brother",
-    "Epson"
+    "CANON",
+    "XEROX",
+    "KYOCERA",
+    "KONICA MINOLTA",
+    "RICOH",
+    "BROTHER",
+    "EPSON"
   ],
   "products": [
     {
       "title": "Laser Printers",
-      "description": "Professional laser printing solutions for business and enterprise environments"
+      "description": "Professional laser printing solutions for business and enterprise environments with cutting-edge technology"
     },
     {
       "title": "Inkjet Devices",
-      "description": "High-quality inkjet technology for precise color reproduction"
+      "description": "High-quality inkjet technology for precise color reproduction and professional graphics output"
     },
     {
       "title": "Cartridges & Toner",
-      "description": "Original and compatible supplies for all major brands"
+      "description": "Original and compatible supplies for all major brands, ensuring optimal print quality and reliability"
     },
     {
       "title": "Industrial Solutions",
-      "description": "Enterprise-level print systems and document management"
+      "description": "Enterprise-level print systems and comprehensive document management solutions for large-scale operations"
     }
   ],
   "contact": {
