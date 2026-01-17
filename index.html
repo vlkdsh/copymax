@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COPYMAX - Estonia's Hub for Global Print Brands</title>
+    <title>COPYMAX — Estonia's Hub for Global Print Brands</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Technical Grid Overlay -->
+    <div class="technical-grid"></div>
+    
+    <!-- Paper Feed Indicator -->
+    <div class="paper-indicator">
+        <div class="paper-line"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo" id="logo"></div>
-                <button class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="logo-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Crect fill='%23E31E24' width='220' height='40'/%3E%3Ctext x='15' y='28' fill='white' font-family='Arial Black' font-size='20' font-weight='900'%3ECOPYMAX%3C/text%3E%3C/svg%3E" alt="COPYMAX" class="logo" id="logo">
+                </div>
                 <nav class="nav" id="nav">
                     <ul class="nav-list" id="navList"></ul>
                 </nav>
@@ -27,43 +32,101 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-grid"></div>
-            <h1 class="hero-title" id="heroTitle"></h1>
-            <p class="hero-subtitle" id="heroSubtitle"></p>
-        </div>
-    </section>
-
-    <!-- Brands Section -->
-    <section class="brands">
-        <div class="container">
-            <div class="brands-roller">
-                <div class="brands-grid" id="brandsGrid"></div>
+        <div class="container-full">
+            <div class="hero-content">
+                <div class="hero-logo-massive">
+                    <span id="heroTitle"></span>
+                </div>
+                <div class="hero-text-vertical">
+                    <span class="vertical-text" id="heroSubtitle"></span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products">
+    <!-- Brands Drum Section -->
+    <section class="brands-drum">
         <div class="container">
-            <h2 class="section-title">OUR PRODUCTS</h2>
-            <div class="products-grid" id="productsGrid"></div>
+            <h2 class="section-label">AUTHORIZED DISTRIBUTOR</h2>
+            <div class="drum-container" id="drumContainer">
+                <div class="drum-track" id="drumTrack"></div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- Products Blueprint Section -->
+    <section class="products">
         <div class="container">
-            <div class="contact-content">
-                <h2 class="contact-title">GET IN TOUCH</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-label">PHONE</span>
-                        <a href="#" class="contact-value" id="contactPhone"></a>
+            <h2 class="blueprint-title">SOLUTIONS PORTFOLIO</h2>
+            <div class="products-blueprint" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- CTA Request Form -->
+    <section class="cta-form">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 class="form-title">REQUEST CONSULTATION</h2>
+                <form class="request-form" id="requestForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="COMPANY NAME" required>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-label">EMAIL</span>
-                        <a href="#" class="contact-value" id="contactEmail"></a>
+                    <div class="form-group">
+                        <input type="email" placeholder="EMAIL ADDRESS" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="PHONE NUMBER" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="YOUR REQUIREMENTS" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">SUBMIT REQUEST</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport Document Contact -->
+    <section class="transport-doc">
+        <div class="container">
+            <div class="doc-wrapper">
+                <div class="doc-header">
+                    <div class="doc-logo">
+                        <div class="stamp-seal">COPYMAX</div>
+                    </div>
+                    <div class="doc-meta">
+                        <div class="doc-field">
+                            <span class="field-label">BILL OF LADING</span>
+                            <span class="field-value">EST-2026-001</span>
+                        </div>
+                        <div class="doc-field">
+                            <span class="field-label">DATE</span>
+                            <span class="field-value" id="currentDate"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doc-body">
+                    <div class="doc-section">
+                        <div class="doc-row">
+                            <span class="mono-label">CONTACT_PHONE:</span>
+                            <a href="#" class="mono-value" id="contactPhone"></a>
+                        </div>
+                        <div class="doc-row">
+                            <span class="mono-label">CONTACT_EMAIL:</span>
+                            <a href="#" class="mono-value" id="contactEmail"></a>
+                        </div>
+                        <div class="doc-row">
+                            <span class="mono-label">LOCATION_EST:</span>
+                            <span class="mono-value">TALLINN, ESTONIA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-footer">
+                    <div class="signature-line">
+                        <span>AUTHORIZED SIGNATURE</span>
+                        <div class="red-stamp">✓ VERIFIED</div>
                     </div>
                 </div>
             </div>
