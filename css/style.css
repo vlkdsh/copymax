@@ -184,16 +184,16 @@ body {
     padding-top: 70px;
     overflow: hidden;
     background: 
-        linear-gradient(rgba(227, 30, 36, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(227, 30, 36, 0.06) 1px, transparent 1px),
-        linear-gradient(rgba(180, 180, 180, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(180, 180, 180, 0.12) 1px, transparent 1px),
-        #FFFFFF;
+        linear-gradient(rgba(227, 30, 36, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(227, 30, 36, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(160, 160, 160, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 160, 160, 0.1) 1px, transparent 1px),
+        #F8F8F8;
     background-size: 
-        100px 100px,
-        100px 100px,
-        25px 25px,
-        25px 25px;
+        120px 120px,
+        120px 120px,
+        30px 30px,
+        30px 30px;
     background-position: -1px -1px;
 }
 
@@ -210,58 +210,59 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 15vh 40px 10vh;
+    padding: 10vh 30px 8vh;
     position: relative;
 }
 
 .text-3d-massive {
-    font-size: clamp(80px, 12vw, 200px);
+    font-size: clamp(70px, 11vw, 180px);
     font-weight: 900;
     color: #E31E24;
-    letter-spacing: -8px;
-    line-height: 0.82;
+    letter-spacing: -5px;
+    line-height: 0.85;
     text-transform: uppercase;
     position: relative;
-    transform: scaleY(3.5);
-    transform-origin: center;
-    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.2));
+    transform: scaleY(4.2);
+    transform-origin: top center;
+    filter: drop-shadow(0 45px 90px rgba(0, 0, 0, 0.25));
     text-shadow: 
-        1px 1px 0px rgba(0, 0, 0, 0.1),
-        2px 2px 0px rgba(0, 0, 0, 0.09),
-        3px 3px 0px rgba(0, 0, 0, 0.08),
-        4px 4px 0px rgba(0, 0, 0, 0.07),
-        5px 5px 0px rgba(0, 0, 0, 0.06),
-        6px 6px 0px rgba(0, 0, 0, 0.05),
-        7px 7px 0px rgba(0, 0, 0, 0.04),
-        8px 8px 0px rgba(0, 0, 0, 0.03),
-        9px 9px 0px rgba(0, 0, 0, 0.02),
-        10px 10px 0px rgba(0, 0, 0, 0.01),
-        0 35px 60px rgba(227, 30, 36, 0.25);
+        1px 1px 0px rgba(0, 0, 0, 0.12),
+        2px 2px 0px rgba(0, 0, 0, 0.11),
+        3px 3px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 0px rgba(0, 0, 0, 0.09),
+        5px 5px 0px rgba(0, 0, 0, 0.08),
+        6px 6px 0px rgba(0, 0, 0, 0.07),
+        7px 7px 0px rgba(0, 0, 0, 0.06),
+        8px 8px 0px rgba(0, 0, 0, 0.05),
+        9px 9px 0px rgba(0, 0, 0, 0.04),
+        10px 10px 0px rgba(0, 0, 0, 0.03),
+        11px 11px 0px rgba(0, 0, 0, 0.02),
+        0 40px 70px rgba(227, 30, 36, 0.3);
 }
 
 .hero-main::before {
     content: '+';
     position: absolute;
-    left: 15px;
-    top: 40%;
-    font-size: 36px;
+    left: 10px;
+    top: 42%;
+    font-size: 40px;
     font-weight: 300;
-    color: var(--red);
-    opacity: 0.5;
+    color: #E31E24;
+    opacity: 0.45;
     line-height: 1;
 }
 
 .cylinder-container {
     width: 100%;
-    max-width: 800px;
-    perspective: 2000px;
+    max-width: 850px;
+    perspective: 2500px;
     position: relative;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .cylinder-wrapper {
     width: 100%;
-    height: 160px;
+    height: 150px;
     position: relative;
     transform-style: preserve-3d;
 }
@@ -270,23 +271,24 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, 
-        #F54A4A 0%,
-        #E31E24 15%,
-        #D01818 35%,
-        #E31E24 50%,
-        #D01818 65%,
-        #E31E24 85%,
-        #F54A4A 100%
+        #F85050 0%,
+        #E31E24 10%,
+        #CB1A20 25%,
+        #E31E24 40%,
+        #CB1A20 55%,
+        #E31E24 70%,
+        #CB1A20 85%,
+        #F85050 100%
     );
-    border-radius: 80px;
+    border-radius: 75px;
     position: relative;
     box-shadow: 
-        0 30px 80px rgba(227, 30, 36, 0.4),
-        inset 0 -20px 50px rgba(0, 0, 0, 0.3),
-        inset 0 20px 50px rgba(255, 255, 255, 0.2),
-        inset -15px 0 40px rgba(0, 0, 0, 0.15),
-        inset 15px 0 40px rgba(255, 255, 255, 0.15);
-    transform: rotateX(12deg) rotateY(-4deg);
+        0 35px 90px rgba(227, 30, 36, 0.45),
+        inset 0 -25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 25px 60px rgba(255, 255, 255, 0.25),
+        inset -20px 0 50px rgba(0, 0, 0, 0.2),
+        inset 20px 0 50px rgba(255, 255, 255, 0.2);
+    transform: rotateX(15deg) rotateY(-5deg);
 }
 
 .cylinder::before,
@@ -294,34 +296,35 @@ body {
     content: '';
     position: absolute;
     background: radial-gradient(ellipse at center, 
-        #C01818 0%,
-        #E31E24 30%,
-        #F54A4A 60%,
-        #E31E24 100%
+        #B01818 0%,
+        #E31E24 25%,
+        #F85050 55%,
+        #E31E24 85%,
+        #CB1A20 100%
     );
-    width: 120px;
-    height: 120px;
+    width: 115px;
+    height: 115px;
     border-radius: 50%;
     box-shadow: 
-        inset 0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 -10px 25px rgba(255, 255, 255, 0.3),
-        0 5px 20px rgba(0, 0, 0, 0.3);
+        inset 0 12px 35px rgba(0, 0, 0, 0.55),
+        inset 0 -12px 30px rgba(255, 255, 255, 0.35),
+        0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
 .cylinder::before {
-    left: -60px;
+    left: -57px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .cylinder::after {
-    right: -60px;
+    right: -57px;
     top: 50%;
     transform: translateY(-50%);
     background: radial-gradient(ellipse at center, 
-        #D01818 0%,
-        #E31E24 35%,
-        #C01818 100%
+        #CB1A20 0%,
+        #E31E24 30%,
+        #B01818 100%
     );
 }
 
@@ -330,78 +333,76 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 65%;
+    width: 62%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
     padding: 20px;
 }
 
 .brand-stamp-cylinder {
-    background: rgba(255, 255, 255, 0.98);
-    border: 3px solid rgba(0, 0, 0, 0.5);
-    padding: 18px 24px;
-    font-size: clamp(14px, 2vw, 24px);
-    font-weight: 900;
-    color: rgba(0, 0, 0, 0.85);
+    background: transparent;
+    border: 2.5px solid rgba(0, 0, 0, 0.35);
+    padding: 16px 22px;
+    font-size: clamp(13px, 1.9vw, 22px);
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.7);
     text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 0px;
+    font-family: Georgia, serif;
+    font-style: italic;
     box-shadow: 
-        0 4px 12px rgba(0, 0, 0, 0.3),
-        inset 0 2px 0 rgba(255, 255, 255, 0.6),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
 .brand-stamp-cylinder:nth-child(1) {
-    transform: rotate(-10deg);
+    transform: rotate(-12deg);
+    border-radius: 8px;
 }
 
 .brand-stamp-cylinder:nth-child(2) {
-    transform: rotate(5deg);
+    transform: rotate(6deg);
+    border-radius: 4px;
 }
 
 .brand-stamp-cylinder:nth-child(3) {
-    transform: rotate(-7deg);
-}
-
-.brand-stamp-cylinder::before {
-    content: '';
-    position: absolute;
-    inset: 7px;
-    border: 1.5px dashed rgba(0, 0, 0, 0.25);
+    transform: rotate(-9deg);
+    border-radius: 6px;
 }
 
 .hero-vertical-text {
     position: absolute;
-    right: 30px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    gap: 20px;
+    gap: 18px;
 }
 
 .vertical-brands {
     display: flex;
-    gap: 20px;
+    gap: 18px;
 }
 
 .vertical-brands > div {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: clamp(28px, 4vw, 72px);
+    font-size: clamp(26px, 3.8vw, 68px);
     font-weight: 900;
     color: #E31E24;
-    letter-spacing: 8px;
-    line-height: 0.8;
+    letter-spacing: 10px;
+    line-height: 0.78;
     text-shadow: 
-        1px 1px 0px rgba(0, 0, 0, 0.08),
-        2px 2px 0px rgba(0, 0, 0, 0.06),
-        3px 3px 0px rgba(0, 0, 0, 0.04),
-        4px 4px 0px rgba(0, 0, 0, 0.02),
-        0 10px 25px rgba(227, 30, 36, 0.2);
-    transform: scaleY(1.25);
+        1px 1px 0px rgba(0, 0, 0, 0.1),
+        2px 2px 0px rgba(0, 0, 0, 0.08),
+        3px 3px 0px rgba(0, 0, 0, 0.06),
+        4px 4px 0px rgba(0, 0, 0, 0.04),
+        5px 5px 0px rgba(0, 0, 0, 0.02),
+        0 12px 30px rgba(227, 30, 36, 0.25);
+    transform: scaleY(1.35);
 }
 
 /* ==================== BRANDS DRUM ==================== */
@@ -750,26 +751,42 @@ body {
     }
 
     .text-3d-massive {
-        font-size: clamp(120px, 15vw, 240px);
-        letter-spacing: -12px;
-        transform: scaleY(4);
+        font-size: clamp(110px, 13vw, 220px);
+        letter-spacing: -8px;
+        transform: scaleY(4.5);
     }
 
     .cylinder {
-        height: 180px;
+        height: 165px;
+        border-radius: 82px;
+    }
+
+    .cylinder::before,
+    .cylinder::after {
+        width: 125px;
+        height: 125px;
+    }
+
+    .cylinder::before {
+        left: -62px;
+    }
+
+    .cylinder::after {
+        right: -62px;
     }
 
     .cylinder-brands {
-        width: 70%;
-        gap: 40px;
+        width: 68%;
+        gap: 45px;
     }
 
     .brand-stamp-cylinder {
-        padding: 20px 28px;
+        padding: 18px 26px;
+        font-size: clamp(15px, 2vw, 24px);
     }
 
     .hero-main {
-        padding: 15vh 60px 10vh;
+        padding: 10vh 50px 8vh;
     }
 }
 
@@ -784,34 +801,76 @@ body {
     }
 
     .text-3d-massive {
-        font-size: 240px;
-        letter-spacing: -15px;
-        transform: scaleY(4.5);
+        font-size: 220px;
+        letter-spacing: -10px;
+        transform: scaleY(5);
     }
 
     .cylinder {
-        height: 200px;
+        height: 180px;
+        border-radius: 90px;
+    }
+
+    .cylinder::before,
+    .cylinder::after {
+        width: 135px;
+        height: 135px;
+    }
+
+    .cylinder::before {
+        left: -67px;
+    }
+
+    .cylinder::after {
+        right: -67px;
     }
 
     .cylinder-brands {
-        width: 65%;
-        gap: 45px;
+        width: 64%;
+        gap: 50px;
     }
 
     .hero-main {
-        padding: 12vh 80px 8vh;
+        padding: 9vh 70px 7vh;
     }
 
     .cylinder-container {
-        max-width: 900px;
+        max-width: 920px;
+    }
+
+    .hero-vertical-text {
+        right: 35px;
+        gap: 20px;
+    }
+
+    .vertical-brands {
+        gap: 20px;
     }
 }
 
 /* ==================== LARGE DESKTOP ==================== */
 @media (min-width: 1440px) {
     .text-3d-massive {
-        font-size: 280px;
-        letter-spacing: -18px;
-        transform: scaleY(5);
+        font-size: 260px;
+        letter-spacing: -12px;
+        transform: scaleY(5.5);
+    }
+
+    .cylinder {
+        height: 195px;
+    }
+
+    .cylinder::before,
+    .cylinder::after {
+        width: 145px;
+        height: 145px;
+    }
+
+    .cylinder::before {
+        left: -72px;
+    }
+
+    .cylinder::after {
+        right: -72px;
     }
 }
