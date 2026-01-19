@@ -1,105 +1,155 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="et">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COPYMAX | Estonia</title>
-    <style>
-        :root { 
-            --red: #f03c2e; 
-            --line-opacity: 0.3; 
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body, html { 
-            width: 100%; height: 100%; 
-            background-color: #f2f2f2; 
-            overflow: hidden; 
-            font-family: sans-serif;
-        }
-
-        .main-container {
-            position: relative;
-            width: 100%; height: 100vh;
-        }
-
-        /* КОНТЕЙНЕР ДЛЯ ЛИНИЙ */
-        .blueprint-lines {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; /* Если линии должны быть ЗА буквами, поставь -1 */
-            pointer-events: none;
-        }
-
-        .line {
-            position: absolute;
-            background-color: var(--red);
-            opacity: var(--line-opacity);
-        }
-
-        /* --- 7 ГОРИЗОНТАЛЬНЫХ ЛИНИЙ --- */
-        .h { width: 100%; }
-        
-        .h-1 { top: 10%;  height: 2px; } /* Жирная верхняя (над лого шапки) */
-        .h-2 { top: 16%; height: 1px; } 
-        .h-3 { top: 38%; height: 2px; } /* Основная ось под COPYMAX */
-        .h-4 { top: 52%; height: 1px; } 
-        .h-5 { top: 65%; height: 2px; } /* Ось над принтером */
-        .h-6 { top: 82%; height: 1px; } 
-        .h-7 { top: 94%; height: 1px; }
-
-        /* --- 8 ВЕРТИКАЛЬНЫХ ЛИНИЙ --- */
-        .v { height: 100%; }
-
-        .v-1 { left: 5%;  width: 2px; } /* Левая жирная граница */
-        .v-2 { left: 14%; width: 1px; } 
-        .v-3 { left: 28%; width: 1px; } 
-        .v-4 { left: 45%; width: 2px; } /* Центральная ось */
-        .v-5 { left: 62%; width: 1px; } 
-        .v-6 { left: 76%; width: 2px; } /* Правая ось (вдоль слогана) */
-        .v-7 { left: 88%; width: 1px; } 
-        .v-8 { left: 96%; width: 1px; }
-
-        /* ШАПКА */
-        header {
-            position: absolute; top: 20px; width: 100%; 
-            padding: 0 60px; display: flex; 
-            justify-content: space-between; align-items: center; 
-            z-index: 100;
-        }
-        .header-logo-img { height: 30px; width: auto; }
-        .menu-icon { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-        .menu-icon span { display: block; width: 35px; height: 3px; background-color: var(--red); }
-
-        /* КАРТИНКИ ОБЪЕКТОВ */
-        .layer { position: absolute; mix-blend-mode: multiply; }
-        .layer-logo { width: 85%; top: 30%; left: 30%; transform: translate(-50%, -50%); z-index: 10; }
-        .layer-slogan { width: 26%; top: 55%; right: -2%; transform: translateY(-50%); z-index: 5; }
-        .layer-printer { width: 81%; bottom: -35%; left: 50%; transform: translateX(-50%); z-index: 15; }
-    </style>
+    <title>COPYMAX — Estonia's Hub for Global Print Brands</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <div class="main-container">
-        <div class="blueprint-lines">
-            <div class="line h h-1"></div><div class="line h h-2"></div><div class="line h h-3"></div>
-            <div class="line h h-4"></div><div class="line h h-5"></div><div class="line h h-6"></div><div class="line h h-7"></div>
-            
-            <div class="line v v-1"></div><div class="line v v-2"></div><div class="line v v-3"></div>
-            <div class="line v v-4"></div><div class="line v v-5"></div><div class="line v v-6"></div>
-            <div class="line v v-7"></div><div class="line v v-8"></div>
-        </div>
-
-        <header>
-            <img src="header-logo.png" alt="COPYMAX" class="header-logo-img">
-            <div class="menu-icon"><span></span><span></span><span></span></div>
-        </header>
-
-        <img src="logo.png" class="layer layer-logo">
-        <img src="slogan.png" class="layer layer-slogan">
-        <img src="printer.png" class="layer layer-printer">
+    <!-- Technical Grid Overlay -->
+    <div class="technical-grid"></div>
+    
+    <!-- Paper Feed Indicator -->
+    <div class="paper-indicator">
+        <div class="paper-line"></div>
     </div>
 
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Crect fill='%23E31E24' width='220' height='40'/%3E%3Ctext x='15' y='28' fill='white' font-family='Arial Black' font-size='20' font-weight='900'%3ECOPYMAX%3C/text%3E%3C/svg%3E" alt="COPYMAX" class="logo" id="logo">
+                </div>
+                <div class="header-right">
+                    <div class="lang-switcher" id="langSwitcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="et">ET</button>
+                    </div>
+                    <button class="burger-menu" id="burgerMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list" id="navList"></ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-3d">
+            <div class="hero-main">
+                <div class="text-3d-massive" id="hero3DText"></div>
+                <div class="cylinder-container">
+                    <div class="cylinder-wrapper">
+                        <div class="cylinder">
+                            <div class="cylinder-brands" id="cylinderBrands"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-vertical-text">
+                <div class="vertical-brands" id="heroVerticalText"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Drum Section -->
+    <section class="brands-drum">
+        <div class="container">
+            <h2 class="section-label">AUTHORIZED DISTRIBUTOR</h2>
+            <div class="drum-container" id="drumContainer">
+                <div class="drum-track" id="drumTrack"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Blueprint Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="blueprint-title">SOLUTIONS PORTFOLIO</h2>
+            <div class="products-blueprint" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- CTA Request Form -->
+    <section class="cta-form">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 class="form-title">REQUEST CONSULTATION</h2>
+                <form class="request-form" id="requestForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="COMPANY NAME" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="EMAIL ADDRESS" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="PHONE NUMBER" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="YOUR REQUIREMENTS" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">SUBMIT REQUEST</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport Document Contact -->
+    <section class="transport-doc">
+        <div class="container">
+            <div class="doc-wrapper">
+                <div class="doc-header">
+                    <div class="doc-logo">
+                        <div class="stamp-seal">COPYMAX</div>
+                    </div>
+                    <div class="doc-meta">
+                        <div class="doc-field">
+                            <span class="field-label">BILL OF LADING</span>
+                            <span class="field-value">EST-2026-001</span>
+                        </div>
+                        <div class="doc-field">
+                            <span class="field-label">DATE</span>
+                            <span class="field-value" id="currentDate"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doc-body">
+                    <div class="doc-section">
+                        <div class="doc-row">
+                            <span class="mono-label">CONTACT_PHONE:</span>
+                            <a href="#" class="mono-value" id="contactPhone"></a>
+                        </div>
+                        <div class="doc-row">
+                            <span class="mono-label">CONTACT_EMAIL:</span>
+                            <a href="#" class="mono-value" id="contactEmail"></a>
+                        </div>
+                        <div class="doc-row">
+                            <span class="mono-label">LOCATION_EST:</span>
+                            <span class="mono-value">TALLINN, ESTONIA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-footer">
+                    <div class="signature-line">
+                        <span>AUTHORIZED SIGNATURE</span>
+                        <div class="red-stamp">✓ VERIFIED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
